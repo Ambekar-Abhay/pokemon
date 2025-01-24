@@ -1,0 +1,51 @@
+<mat-card appearance="outlined" class="margin-top">
+    <mat-card-content class="score-content">
+        <h3>Score: <b>{{counter()}}</b></h3>
+    </mat-card-content>
+</mat-card>
+<div class="card-container">
+    <div class="pokemon-container">
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Who's that Pokemon?</mat-card-title>
+            </mat-card-header>
+            <div class="img-container">
+                <img mat-card-image [src]="silhouette" alt="Who's that Pokemon?" class="silhouette">
+            </div>
+            <mat-card-content>
+                <p>
+                    Select correct pokemon from below
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <ng-container *ngFor="let option of pokemonOptions">
+                    <button mat-raised-button color="accent" (click)="checkSelection(option.name)"
+                        class="option-btn">{{option.name}}</button>
+                </ng-container>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+
+    <div class="result-container">
+        <mat-card class="example-card" appearance="outlined" *ngIf="isContentDisplayed">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title *ngIf="isSelectionCorrect" class="success-msg">You are Correct</mat-card-title>
+                <mat-card-title *ngIf="!isSelectionCorrect" class="warn-msg"> You are Wrong</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="silhouette" alt="Who's that Pokemon?">
+            <mat-card-content>
+                <p>
+                    <b>Pokemon name is : {{name}}</b>
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+<div>
+    <button mat-raised-button color="primary" class="next-pokemon" (click)="loadNextPokemon()">Load next
+        pokemon</button>
+</div>

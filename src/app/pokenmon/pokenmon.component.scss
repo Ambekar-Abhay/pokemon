@@ -1,0 +1,52 @@
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    .pokemon-container {
+        margin-left: 20px;
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+
+            .silhouette {
+                width: 200px;
+                height: 200px;
+                filter: brightness(0);
+            }
+
+        }
+    }
+
+    .result-container {
+        margin-right: 20px;
+
+        .success-msg {
+            color: green
+        }
+
+        .warn-msg {
+            color: red;
+        }
+    }
+}
+
+
+.score-content {
+    display: flex;
+    justify-content: center;
+}
+
+.next-pokemon {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.option-btn {
+    margin-right: 10px;
+}
